@@ -1,12 +1,21 @@
 console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
+let basket = [];
+let item;
+function addItem(item) {
+   
+    console.log('in addItem - you are adding ', item ,' to your basket')
+basket.push(item);
+console.log('The item ', item, ' has been added to your basket!')
+return true;
 
+}
 
-
-
-
-
+console.log('Testing addItem -' , addItem('Apple'));
+console.log('Testing addItem -' , addItem('Peaches'));
+console.log('Testing addItem -' , addItem('Carrots'));
+console.log('Testing addItem -' , addItem('Cottage Cheese'));
 
 
 
