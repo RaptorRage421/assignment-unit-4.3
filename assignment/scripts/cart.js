@@ -19,10 +19,16 @@ console.log('Cannot add anymore items to your cart!');
 }
 
 function empty(basket){
-    basket.length = 0;
+    let i = basket.length;
+    while (i > 0){
+        basket.pop(i);
+    i--;
+    }
     console.log('Reset basket:', basket);
     return basket;
-}
+} 
+
+
 
 function listItems(basket){
 for (let i=0; i<basket.length; i++){
@@ -45,15 +51,7 @@ else {
 
 
 function removeItem(item){
-    console.log(basket);
-    console.log(basket.indexOf(item));
-    if (basket.indexOf(item) !== -1){
-        basket.splice(basket.indexOf(item));
-
-    return basket
-    }
-    console.log( item + " does not exists")
-    return null;
+  
     }
    
 
@@ -83,10 +81,10 @@ console.log(`Basket is still ${basket}`);
 
 
 
-console.log('Testing isFull: ', isFull(basket), basket, 'your cart is full!');
+console.log('Testing isFull: ', isFull(basket), basket);
 
 console.log('Testing listItems: ', listItems(basket));
-console.log('Testing removeItem: ',  removeItem('Cake'), basket );
+
 
 
 // DO NOT MODIFY
