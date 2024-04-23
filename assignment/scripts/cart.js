@@ -3,64 +3,64 @@ console.log('***** Cart Functions *****');
 // We want to see how you are testing your code!!!
 
 const maxItems = 5;
-const basket = ['Watermelon','Cherries','Strawberries', 'Chocolate','Peaches'];
+const basket = ['Watermelon', 'Cherries', 'Strawberries', 'Chocolate', 'Peaches'];
 
-function addItem( item ){
+function addItem(item) {
     console.log('in addItem', item)
-    if (isFull(basket) === true ){
-         console.log('CANNOT ADD ANY MORE ITEMS!!!');
+    if (isFull(basket) === true) {
+        console.log('CANNOT ADD ANY MORE ITEMS!!!');
         return false;
     }
-    else  
-    console.log('there is still room in your cart for ' + item);
-    basket.push( item );
+    else
+        console.log('there is still room in your cart for ' + item);
+    basket.push(item);
     console.log(basket);
     return true;
 }
 
-function empty(){
-  basket.length=0;
-    
+function empty() {
+    basket.length = 0;
+
     console.log('Basket Reset:');
     return basket;
 }
 
-function isFull(){
+function isFull() {
     console.log('in isFull');
-    if (maxItems > basket.length){
-        console.log('You have room to add',maxItems - basket.length, 'more items');
+    if (maxItems > basket.length) {
+        console.log('You have room to add', maxItems - basket.length, 'more items');
         return false;
     }
     else {
-        if(maxItems <= basket.length){
-        console.log('Your Cart is Full!');
-        return true;
+        if (maxItems <= basket.length) {
+            console.log('Your Cart is Full!');
+            return true;
         }
     }
 }
 
-function listItems(){
-    console.log('in listItems'); 
-    let i=0;
-    while (i<basket.length){
+function listItems() {
+    console.log('in listItems');
+    let i = 0;
+    while (i < basket.length) {
         console.log(basket[i]);
         i++;
     }
-        return basket.join(' , ');
+    return basket.join(' , ');
 }
 
 
-function removeItem(item){
+function removeItem(item) {
     console.log('in removeItem');
-    if (basket.indexOf(item) !== -1){
-        console.log('index of ', item,' in cart: ', basket.indexOf(item));
-        let removed = basket.splice(basket.indexOf(item),1);
-            console.log('Testing show removed: ' , removed);    
-            console.log(item , 'has been removed from cart!', basket);
-            return removed;
-        }
-        console.log( item + " does not exist");
-        return null;
+    if (basket.indexOf(item) !== -1) {
+        console.log('index of ', item, ' in cart: ', basket.indexOf(item));
+        let removed = basket.splice(basket.indexOf(item), 1);
+        console.log('Testing show removed: ', removed[0]);
+        console.log(item, 'has been removed from cart!', basket);
+        return removed[0];
+    }
+    console.log(item + " does not exist");
+    return 
 }
 
 
@@ -106,6 +106,6 @@ try {
         isFull: typeof isFull !== 'undefined' ? isFull : undefined,
         removeItem: typeof removeItem !== 'undefined' ? removeItem : undefined,
     };
-} catch(e) {
+} catch (e) {
     // Do nothing
 }
