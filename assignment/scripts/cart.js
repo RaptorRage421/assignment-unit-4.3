@@ -3,16 +3,16 @@ console.log('***** Cart Functions *****');
 // We want to see how you are testing your code!!!
 
 const maxItems = 5;
-const basket = [];
+const basket = ['Watermelon','Cherries','Strawberries', 'Chocolate','Peaches'];
 
 function addItem( item ){
     console.log('in addItem', item)
     if (isFull(basket) === true ){
-         console.log('Cannot add anymore items to your cart!');
+         console.log('CANNOT ADD ANY MORE ITEMS!!!');
         return false;
     }
     else  
-    console.log('there is still room in your cart to add ' + item);
+    console.log('there is still room in your cart for ' + item);
     basket.push( item );
     console.log(basket);
     return true;
@@ -21,15 +21,19 @@ function addItem( item ){
 function empty(basket){
     let i = basket.length;
     while (i > 0){
+        console.log(basket);
         basket.pop(i);
         i--;
+        
     }
-    console.log('Reset basket:', basket);
-        return basket;
+    console.log('Basket Reset:');
+    return basket;
 } 
 
 function isFull(basket){
+    console.log('in isFull');
     if (maxItems > basket.length){
+        console.log('You have room to add',maxItems - basket.length, 'more items');
         return false;
     }
     else {
@@ -41,56 +45,56 @@ function isFull(basket){
 }
 
 function listItems(basket){
-    for (let i=0; i<basket.length; i++){
-    return basket.join(' , ');
+    console.log('in listItems'); 
+    let i=0;
+    while (i<basket.length){
+        console.log(basket[i]);
+        i++;
     }
+        return basket.join(' , ');
 }
 
 
-
-
 function removeItem(item){
-    
+    console.log('in removeItem');
     if (basket.indexOf(item) !== -1){
         console.log('index of ', item,' in cart: ', basket.indexOf(item));
         basket.splice(basket.indexOf(item),1);
 
             return console.log(item , 'has been removed from cart!', basket);
         }
-    console.log( item + " does not exist")
+        console.log( item + " does not exist");
         return null;
-    }
-   
-
+}
 
 
 
 console.log('Testing empty: ' , empty(basket));
-console.log(`Basket is ${listItems(basket)}`);
+console.log(`Basket contains ${listItems(basket)}`);
 console.log('Adding Strawberries (expect true)', addItem('Strawberries')); 
-console.log('Testing isFull: ', isFull(basket), basket);
-console.log(`Basket is ${listItems(basket)}`);
+console.log('Testing isFull: ', isFull(basket));
+console.log(`Basket contains ${basket}`);
 console.log('Adding Watermelon (expect true)', addItem('Watermelon')); 
-console.log('Testing isFull: ', isFull(basket), basket);
-console.log(`Basket is ${listItems(basket)}`);
+console.log('Testing isFull: ', isFull(basket));
+console.log(`Basket contains ${listItems(basket)}`);
 console.log('Adding Grapes (expect true)', addItem('Grapes'));
-console.log('Testing isFull: ', isFull(basket), basket);
-console.log(`Basket is ${listItems(basket)}`);
+console.log('Testing isFull: ', isFull(basket));
+console.log(`Basket contains ${listItems(basket)}`);
 console.log('Adding Pumpkins (expect true)', addItem('Pumpkins'));
-console.log('Testing isFull: ', isFull(basket), basket);
-console.log(`Basket is ${listItems(basket)}`);
+console.log('Testing isFull: ', isFull(basket));
+console.log(`Basket contains ${listItems(basket)}`);
 console.log('Adding Cherries (expect true)', addItem('Cherries'));
-console.log('Testing isFull: ', isFull(basket), basket);
-console.log(`Basket is ${listItems(basket)}`);
+console.log('Testing isFull: ', isFull(basket));
+console.log(`Basket contains ${listItems(basket)}`);
 console.log('Adding Corn (expect false)', addItem('Corn'));
-console.log('Testing isFull: ', isFull(basket), basket);
+console.log('Testing isFull: ', isFull(basket));
 console.log('Testing listItems: ', listItems(basket));
 console.log('Testing removeItem: ', removeItem('Pumpkins'));
-console.log(`Basket is ${listItems(basket)}`);
+console.log(`Basket contains ${listItems(basket)}`);
 console.log('Testing removeItem: ', removeItem('Cherries'));
-console.log(`Basket is ${listItems(basket)}`);
+console.log(`Basket contains ${listItems(basket)}`);
 console.log('Adding Corn (expecting true) ', addItem('Corn'));
-console.log(`Basket is ${listItems(basket)}`);
+console.log(`Basket contains ${listItems(basket)}`);
 
 
 
